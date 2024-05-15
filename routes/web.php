@@ -5,7 +5,7 @@ use App\Models\User;
 
 Route::view('/', 'welcome');
 
-Route::view('/dashboard', function(){
+Route::get('/dashboard', function(){
     $users = User::where('id', '!=', auth()->user()->id)->get();
     return view('dashboard', [
         'users' => $users
